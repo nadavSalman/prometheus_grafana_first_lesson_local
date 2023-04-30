@@ -1,0 +1,32 @@
+version: "3"
+
+
+
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus:/etc/prometheus/
+
+  node-exporter-1:
+    image: prom/node-exporter
+    container_name: node-exporter-1
+    ports:
+      - "8080:9100"
+
+  node-exporter-2:
+    image: prom/node-exporter
+    container_name: node-exporter-2
+    ports:
+      - "8082:9100"
+
+  node-exporter-3:
+    image: prom/node-exporter
+    container_name: node-exporter-3
+    ports:
+      - "8083:9100"
+
